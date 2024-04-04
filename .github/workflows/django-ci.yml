@@ -18,13 +18,10 @@ jobs:
       
       - name: Build Docker Image
         run: docker build -t djangoapp .
-     
-      - name: Run Docker container 
-        run: |
-          docker run -d -p 8080:8080 djangoapp
 
       - name: Publish to Docker Hub
         uses: docker/build-push-action@v5
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: django-docker
