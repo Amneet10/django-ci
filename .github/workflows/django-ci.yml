@@ -17,11 +17,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker Image
-        run: docker build -t myapp .
+        run: docker build -t djangoapp .
      
 
       - name: Run Docker container 
         run: |
-         docker run -d -p 8080:8080 myapp
+         docker run -d -p 8080:8080 djangoapp
 
   

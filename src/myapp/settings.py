@@ -13,7 +13,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',  # Replace 'myapp' with the name of your app
+    'djangoapp',  # Replace 'djangoapp' with the name of your app
 ]
 
 MIDDLEWARE = [
@@ -26,7 +26,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'myapp.urls'  # Replace 'myapp' with the name of your app
+ROOT_URLCONF = 'djangoapp.urls'  # Replace 'djangoapp' with the name of your app
 
 TEMPLATES = [
     {
@@ -44,7 +44,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myapp.wsgi.application'  # Replace 'myapp' with the name of your app
+WSGI_APPLICATION = 'djangoapp.wsgi.application'  # Replace 'djangoapp' with the name of your app
 
 DATABASES = {
     'default': {
