@@ -42,7 +42,7 @@ jobs:
       - name: Terraform Plan
         run: |
           cd src/terraform_folder
-          terraform plan -no-color
+          terraform plan -no-color -out=tfplan
 
       - name: Terraform Apply
         run: |
