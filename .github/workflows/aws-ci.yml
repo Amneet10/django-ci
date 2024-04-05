@@ -35,16 +35,16 @@ jobs:
 
       - name: Terraform Init and Validate
         run: |
-          cd src/terraform_folder
+          cd src/terraform_folder/main.tf
           terraform init
           terraform validate
 
       - name: Terraform Plan
         run: |
-          cd src/terraform_folder
+          cd src/terraform_folder/main.tf
           terraform plan -no-color
 
       - name: Terraform Apply
         run: |
-          cd src/terraform_folder
+          cd src/terraform_folder/main.tf
           terraform apply -auto-approve tfplan
