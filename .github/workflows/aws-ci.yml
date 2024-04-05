@@ -44,7 +44,14 @@ jobs:
           cd src/terraform_folder
           terraform plan -no-color -out=tfplan
 
-      - name: Terraform Apply
+      - name: Terraform Action
         run: |
           cd src/terraform_folder
-          terraform apply -auto-approve tfplan
+          if [ "${{ github.event.inputs.action }}" = "apply" ]; then
+            terraform apply -auto-approve tfplan
+          elif [ "${{ github.event.inputs.action }}" = "destroy" ]; then
+            terraform destroy -auto-approve
+          else
+            echo "Invalid action specified."
+            exit 1
+          fi
