@@ -28,4 +28,12 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          # aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: Set up environment variables
+        env:
+          MY_VARIABLE: 'AWS_REGION'
+        run: echo "Setting up environment variable MY_VARIABLE"
+
+      - name: Use environment variable
+        run: echo "The value of MY_VARIABLE is $MY_VARIABLE"
