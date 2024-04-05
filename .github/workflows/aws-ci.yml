@@ -12,8 +12,6 @@ on:
           - apply
           - destroy
 
-env:
-  MY_VARIABLE: AWS_REGION 
 
 jobs:
   build:
@@ -31,7 +29,4 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          # aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Use environment variable
-        run: echo "The value of MY_VARIABLE is $MY_VARIABLE"
+          aws-region: ${{ vars.AWS_REGION }}
