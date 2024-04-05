@@ -28,23 +28,19 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: ${{ vars.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
-
-      - name: Validate Terraform configuration
-        id: validate
-        run: terraform validate
+      - name: Terraform Init and Validate
+        run: |
+          cd src/terraform_folder
+          terraform init
+          terraform validate
 
       - name: Terraform Plan
-        id: plan
         run: terraform plan -no-color
 
       - name: Terraform Apply
-        id: apply
         run: terraform apply -auto-approve tfplan
