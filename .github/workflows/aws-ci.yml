@@ -4,12 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'Select action'
+        description: 'Please select the command'
         required: true
         default: 'apply'
+        type: choice
         options:
-          apply: 'apply'
-          destroy: 'destroy'
+          - apply
+          - destroy
 
 jobs:
   build:
