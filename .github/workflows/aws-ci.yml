@@ -40,7 +40,11 @@ jobs:
           terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -no-color
+        run: |
+          cd src/terraform_folder
+          terraform plan -no-color
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
+        run: |
+          cd src/terraform_folder
+          terraform apply -auto-approve tfplan
