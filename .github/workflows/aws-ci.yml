@@ -56,9 +56,5 @@ jobs:
             exit 1
           fi
 
-      - name: Capture EC2 IP Address
-        id: ec2_output
-        run: echo "::set-output name=ec2_ip_address::$(terraform output -raw ec2_ip_address)"
-
       - name: Store EC2 IP Address Secret
-        run: echo "EC2_IP_ADDRESS=${{ steps.ec2_output.outputs.ec2_ip_address }}" >> $GITHUB_ENV
+        run: echo "EC2_IP_ADDRESS=${{ terraform output public_ip }}" >> $GITHUB_ENV
