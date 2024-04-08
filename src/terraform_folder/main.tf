@@ -11,3 +11,7 @@ resource "aws_instance" "webserver" {
     Name = "django-ec2"
   }
 }
+
+output "ec2_ip_address" {
+  value = aws_instance.webserver.public_ip
+}
