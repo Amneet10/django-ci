@@ -58,6 +58,6 @@ jobs:
           fi
 
       - name: Set output
-        run: echo "{ec2_ip_address}"={"aws_instance.webserver.public_ip"}>> $GITHUB_STATE
+        run: echo "{ec2_ip_address}={aws_instance.webserver.public_ip}">> $GITHUB_ENV
         # if: ${{ success() }}
         # run: echo "EC2_IP_ADDRESS=${{ steps.terraform.outputs.EC2_IP_ADDRESS }}" >> $GITHUB_ENV
