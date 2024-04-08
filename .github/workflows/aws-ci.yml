@@ -49,6 +49,7 @@ jobs:
           cd src/terraform_folder
           if [ "${{ github.event.inputs.action }}" = "apply" ]; then
             terraform apply -auto-approve tfplan
+            EC2_IP_ADDRESS=$(terraform output public_ip)
           elif [ "${{ github.event.inputs.action }}" = "destroy" ]; then
             terraform destroy -auto-approve
           else
@@ -57,4 +58,4 @@ jobs:
           fi
 
       - name: Store EC2 IP Address Secret
-        run: echo "EC2_IP_ADDRESS=${{ terraform output public_ip }}" >> $GITHUB_ENV
+        run: echo "EC2_IP_ADDRESS=${{ EC2_IP_ADDRESS }}" >> $GITHUB_ENV
