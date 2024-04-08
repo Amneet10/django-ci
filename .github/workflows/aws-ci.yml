@@ -61,4 +61,4 @@ jobs:
         run: echo "::set-output name=ec2_ip_address::$(terraform output -raw ec2_ip_address)"
 
       - name: Store EC2 IP Address Secret
-        run: echo "${{ steps.ec2_output.outputs.ec2_ip_address }}" >> $GITHUB_ENV
+        run: echo "EC2_IP_ADDRESS=${{ steps.ec2_output.outputs.ec2_ip_address }}" >> $GITHUB_ENV
